@@ -86,25 +86,20 @@ Smart-Lift-System/
 
 - python crowd.py
 
-🔄 Working Mechanism
-Each laptop (placed on a floor) runs crowd.py and uses a webcam to detect the number of faces.
+## 🔄 Working Mechanism
 
-If detected crowd ≥ 2, it sends an HTTP request like:
+- Each laptop (placed on a floor) runs crowd.py and uses a webcam to detect the number of faces.
+- 
+- If detected crowd ≥ 2, it sends an HTTP request like:
+- http://<ESP32_IP>/floor0?count=3
+- ESP32 collects requests from all floors and determines the most crowded one.
 
-arduino
-Copy
-Edit
-http://<ESP32_IP>/floor0?count=3
-ESP32 collects requests from all floors and determines the most crowded one.
+- Using a DC motor (controlled by L298N), the lift moves to that floor.
 
-Using a DC motor (controlled by L298N), the lift moves to that floor.
+- Reed switches help detect when the lift reaches the target floor.
 
-Reed switches help detect when the lift reaches the target floor.
+- After servicing, the lift automatically returns to floor 0.
 
-After servicing, the lift automatically returns to floor 0.
-
-📉 System Block Diagram (Textual Description)
-sql
 ## 📉 System Block Diagram (Textual Description)
 
 ```
@@ -121,47 +116,33 @@ sql
                    [DC Gear Motor]        [Floor Detection]         [Lift Position]
 ```
 
-📈 Performance Observations
-✅ Reliable up to 3 floors.
+## 📈 Performance Observations
 
-💡 Face detection works best with proper lighting.
+- ✅ Reliable up to 3 floors.
+- 💡 Face detection works best with proper lighting.
+- ⚡ Low latency in Wi-Fi HTTP communication.
+- 🧲 Magnet-reed switch detection offers decent positional accuracy.
 
-⚡ Low latency in Wi-Fi HTTP communication.
+## 🌱 Future Enhancements
 
-🧲 Magnet-reed switch detection offers decent positional accuracy.
+- 🔊 Voice Command Integration using Google Assistant.
+- 🧍‍♂️ People Counting with YOLO or advanced deep learning models.
+- 📲 Mobile App to remotely call the lift.
+- 🧭 Shortest Path Optimization for multi-lift systems.
+- 🔒 Access Control with RFID for secure floor entry.
 
-🌱 Future Enhancements
-🔊 Voice Command Integration using Google Assistant.
+## 🧠 Learnings & Skills Applied
 
-🧍‍♂️ People Counting with YOLO or advanced deep learning models.
+- Internet of Things (IoT) communication
+- Real-time computer vision with Python
+- Embedded systems and motor control
+- HTTP protocol and web server handling on ESP32
+- Sensor integration and hardware debugging
 
-📲 Mobile App to remotely call the lift.
+## 📬 Contributing
+- Have suggestions or want to extend this project?
+- Feel free to fork, clone, or raise an issue.
+- Pull requests are welcome!
 
-🧭 Shortest Path Optimization for multi-lift systems.
-
-🔒 Access Control with RFID for secure floor entry.
-
-🧠 Learnings & Skills Applied
-Internet of Things (IoT) communication
-
-Real-time computer vision with Python
-
-Embedded systems and motor control
-
-HTTP protocol and web server handling on ESP32
-
-Sensor integration and hardware debugging
-
-📬 Contributing
-Have suggestions or want to extend this project?
-Feel free to fork, clone, or raise an issue.
-Pull requests are welcome!
-
-📄 License
-This project is open-source and available under the MIT License.
-
-vbnet
-Copy
-Edit
-
-Let me know if you’d like a `.pptx` for presentation, code formatting help, or GitHub release packaging.
+## 📄 License
+- This project is open-source and available under the MIT License.
