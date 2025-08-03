@@ -89,7 +89,7 @@ Smart-Lift-System/
 ## 🔄 Working Mechanism
 
 - Each laptop (placed on a floor) runs crowd.py and uses a webcam to detect the number of faces.
-- 
+  
 - If detected crowd ≥ 2, it sends an HTTP request like:
 - http://<ESP32_IP>/floor0?count=3
 - ESP32 collects requests from all floors and determines the most crowded one.
