@@ -48,19 +48,17 @@ A prototype of an **intelligent, camera-based crowd-aware elevator system** buil
 - **`requests`** – For HTTP requests to ESP32
 - **Haar Cascade** – Pre-trained face detection model
 
----
-
 ## 📁 File Structure
 
+```
 Smart-Lift-System/
-├── ArduinoCode.txt # ESP32 lift control code (Arduino C)
-├── crowd.py # Python script for camera & face detection
+├── ArduinoCode.txt                  # ESP32 lift control logic (Arduino C)
+├── crowd.py                         # Python script for face detection using laptop cameras
 ├── model/
-│ └── haarcascade_frontalface_default.xml # Haar model for face detection
-├── README.md # Project documentation
+│   └── haarcascade_frontalface_default.xml  # Haar Cascade model for face detection
+└── README.md                        # Project documentation
+```
 
-
----
 
 ## ⚙️ Setup Instructions
 
