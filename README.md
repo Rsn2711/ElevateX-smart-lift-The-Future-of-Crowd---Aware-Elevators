@@ -105,20 +105,22 @@ After servicing, the lift automatically returns to floor 0.
 
 📉 System Block Diagram (Textual Description)
 sql
-Copy
-Edit
-+------------------+        HTTP POST         +------------------+
-| Python (crowd.py)|  --------------------->  | ESP32 Web Server |
-| OpenCV Face Count|                          | Processes Floor   |
-+------------------+                          | Requests & Moves |
-                                              | Lift via Motor   |
-                                              +--------+---------+
-                                                       |
-                                     +-----------------+------------------+
-                                     |                                    |
-                               [Motor Driver]                   [Reed Switch System]
-                                     |                                    |
-                             [DC Gear Motor]                    [Floor Detection + LEDs]
+## 📉 System Block Diagram (Textual Description)
+
+```
++------------------+      HTTP POST      +------------------+
+| Python (crowd.py)| ------------------> | ESP32 Web Server |
+| OpenCV Face Count|                     | Processes Floor  |
++------------------+                     | Requests & Moves |
+                                         | Lift via Motor   |
+                                         +--------+---------+
+                                                  |
+                          +------------------------+------------------------+
+                          |                        |                        |
+                   [Motor Driver]         [Reed Switch System]       [LEDs per Floor]
+                   [DC Gear Motor]        [Floor Detection]         [Lift Position]
+```
+
 📈 Performance Observations
 ✅ Reliable up to 3 floors.
 
